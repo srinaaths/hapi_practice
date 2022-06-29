@@ -13,6 +13,8 @@ server.route({
 	method: 'GET',
 	path: '/',
 	handler: function (request, reply) {
+		const query = request.query;
+		console.log(query);
 		reply('hello');
 }})
 
