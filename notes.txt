@@ -9,3 +9,9 @@ created a working basic server in server.js
 2- Query params - usage
 use ? to add, multiple queries with same key(name) can also be addded and it'll stored as null in the value field
 also multiple values can be added for the same key and it'll be stored in the form of an array
+
+3- accept various kinds of data - how to access data that comes with request payload
+
+Request payload only is accesible with the put and post methods
+
+access with req.payload

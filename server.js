@@ -10,12 +10,12 @@ server.connection({
 // add routes to accept requests
 
 server.route({
-	method: 'GET',
+	method: 'POST',
 	path: '/',
 	handler: function (request, reply) {
-		const query = request.query;
-		console.log(query);
-		reply('hello');
+		const payload = request.payload;
+		console.log(payload);
+		reply(payload);
 }})
 
 server.start(function (err) {
