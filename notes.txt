@@ -7,3 +7,5 @@ install hapi@16.1.0
 created a working basic server in server.js
 
 2- Query params - usage
+use ? to add, multiple queries with same key(name) can also be addded and it'll stored as null in the value field
+also multiple values can be added for the same key and it'll be stored in the form of an array
