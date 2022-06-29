@@ -9,17 +9,26 @@ server.connection({
 
 // add routes to accept requests
 
+server.register([
+	{
+		register: require('hapi-geo-locate'),
+		options: {
+			enabledByDefault: true
+		}
+	}
+], (err) => {
+	console.log(err);
+
 server.route({
 	method: 'GET',
-	path: '/',
+	path: '/location',
 	handler: function (request, reply) {
-		console.log('in the handler');
-		const payload = request.payload;
-		const header = request.headers
-		console.log(header);
-		reply(header);
+		reply(request.location)
 	}
 })
+
+}
+)
 
 server.register({
 	register: require('inert')
