@@ -2,4 +2,4 @@ hapi tutorial - future studio
 
 individual plugins are needed
 
-
+install hapi@16.1.0
