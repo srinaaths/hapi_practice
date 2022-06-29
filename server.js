@@ -30,6 +30,18 @@ server.route({
 }
 )
 
+server.route({
+	method: 'GET',
+	path: '/getjson',
+	handler: function (request, reply) {
+		const data = {
+			name: "Sri",
+			age: 98
+		}
+		reply(data);
+	}
+})
+
 server.register({
 	register: require('inert')
 }, (err) => {
