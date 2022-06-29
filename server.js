@@ -19,8 +19,23 @@ server.route({
 	}
 })
 
+server.register({
+	register: require('inert')
+}, (err) => {
+	if (err) {
+		console.log(err);
+	}
+
+server.route({
+	method: 'GET',
+	path: '/notes.txt',
+	handler: (req, reply) => {
+		reply.file('notes.txt')
+	}
+})}
+)
 server.start(function (err) {
 	if (err)
 		throw err
 	console.log('server started');
-});
+})
