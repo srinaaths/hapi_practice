@@ -10,12 +10,14 @@ server.connection({
 // add routes to accept requests
 
 server.route({
-	method: 'POST',
+	method: 'GET',
 	path: '/',
 	handler: function (request, reply) {
+		console.log('in the handler');
 		const payload = request.payload;
-		console.log(payload);
-		reply(payload);
+		const header = request.headers
+		console.log(header);
+		reply(header);
 	}
 })
 
