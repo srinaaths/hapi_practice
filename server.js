@@ -32,8 +32,20 @@ server.route({
 	handler: (req, reply) => {
 		reply.file('notes.txt')
 	}
-})}
-)
+})
+
+server.route({
+	method: 'GET',
+	path: '/js/{file*}',
+	handler: {
+		directory: {
+			path: './',
+			listing: true
+		}
+	}
+})
+
+})
 server.start(function (err) {
 	if (err)
 		throw err
