@@ -11,11 +11,13 @@ server.route([
 	{
 		method: 'GET',
 		path: '/',
-		handler: function (request, reply) {
-			reply('hey there')
-		},
 		config: {
-
+			response: {
+				emptyStatusCode: 204,
+			},
+			handler: function (request, reply) {
+				reply();
+			}
 		}
 	},
 	{
