@@ -16,10 +16,11 @@ server.route({
 		const payload = request.payload;
 		console.log(payload);
 		reply(payload);
-}})
+	}
+})
 
 server.start(function (err) {
-	if(err) 
+	if (err)
 		throw err
 	console.log('server started');
 });
