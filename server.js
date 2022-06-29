@@ -7,70 +7,28 @@ server.connection({
 	port: 3000
 })
 
-// add routes to accept requests
-
-server.register([
+server.route([
 	{
-		register: require('hapi-geo-locate'),
-		options: {
-			enabledByDefault: true
+		method: 'GET',
+		path: '/',
+		handler: function (request, reply) {
+			reply('hey there')
+		},
+		config: {
+
+		}
+	},
+	{
+		method: 'GET',
+		path: '/shop/{id}',
+		handler: function (request, reply) {
+			reply('you requested for ' + request.params.id)
 		}
 	}
-], (err) => {
-	console.log(err);
+])
 
-server.route({
-	method: 'GET',
-	path: '/location',
-	handler: function (request, reply) {
-		reply(request.location)
-	}
-})
-
-}
-)
-
-server.route({
-	method: 'GET',
-	path: '/getjson',
-	handler: function (request, reply) {
-		const data = {
-			name: "Sri",
-			age: 98
-		}
-		reply(data);
-	}
-})
-
-server.register({
-	register: require('inert')
-}, (err) => {
-	if (err) {
-		console.log(err);
-	}
-
-server.route({
-	method: 'GET',
-	path: '/notes.txt',
-	handler: (req, reply) => {
-		reply.file('notes.txt')
-	}
-})
-
-server.route({
-	method: 'GET',
-	path: '/js/{file*}',
-	handler: {
-		directory: {
-			path: './',
-			listing: true
-		}
-	}
-})
-
-})
-server.start(function (err) {
-	if (err)
-		throw err
-	console.log('server started');
+server.start((err) => {
+	if(err)
+		throw err;
+	console.log('server running');
 })
