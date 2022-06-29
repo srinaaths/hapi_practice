@@ -1,0 +1,5 @@
+hapi tutorial - future studio
+
+individual plugins are needed
+
+
